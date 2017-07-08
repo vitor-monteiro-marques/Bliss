@@ -7,10 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class QuestionAdapter extends BaseAdapter {

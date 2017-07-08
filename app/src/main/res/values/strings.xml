@@ -4,4 +4,8 @@
     <string name="question_name">Question name</string>
     <string name="date_created">Date created</string>
     <string name="question_number">Question number</string>
+    <string name="loading">Loading...</string>
+    <string name="retry_connection">Click to retry</string>
+    <string name="no_connection">No connection :(</string>
+    <string name="no_health">Server down :(</string>
 </resources>
