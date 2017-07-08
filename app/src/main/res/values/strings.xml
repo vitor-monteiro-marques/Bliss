@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">bliss</string>
+    <string name="cover_image">cover image</string>
+    <string name="question_name">Question name</string>
+    <string name="date_created">Date created</string>
+    <string name="question_number">Question number</string>
 </resources>
