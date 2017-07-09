@@ -1,39 +1,14 @@
 package com.vmarques.bliss;
 
+import android.content.Context;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-public class ApiClient {
+import cz.msebera.android.httpclient.entity.StringEntity;
 
-//    /********
-//     * URLS
-//     *******/
-//    public static final String BASE_URL = "https://private-bbbe9-blissrecruitmentapi.apiary-mock.com";
-//    private static Retrofit retrofit = null;
-//
-//    /**
-//     * Get Retrofit Instance
-//     */
-//    public static Retrofit getRetrofitInstance() {
-//
-//        if (retrofit==null) {
-//            retrofit = new Retrofit.Builder()
-//                    .baseUrl(BASE_URL)
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build();
-//        }
-//        return retrofit;
-//    }
-//
-//    /**
-//     * Get API Service
-//     *
-//     * @return API Service
-//     */
-//    public static ApiService getApiService() {
-//        return getRetrofitInstance().create(ApiService.class);
-//    }
+public class ApiClient {
 
 
     private static final String BASE_URL = "https://private-bbbe9-blissrecruitmentapi.apiary-mock.com";
@@ -46,6 +21,10 @@ public class ApiClient {
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
         client.post(getAbsoluteUrl(url), params, responseHandler);
+    }
+
+    public static void put(Context context, String url, StringEntity se, String s,AsyncHttpResponseHandler responseHandler) {
+        client.put(context, getAbsoluteUrl(url), se, s, responseHandler);
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {
