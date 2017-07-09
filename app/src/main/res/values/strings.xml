@@ -8,4 +8,8 @@
     <string name="retry_connection">Click to retry</string>
     <string name="no_connection">No connection :(</string>
     <string name="no_health">Server down :(</string>
+    <string name="enter_email">Enter your email:</string>
+    <string name="sending">Sending...</string>
+    <string name="email_sent">Email sent!</string>
+    <string name="email_error">Could not send email!</string>
 </resources>

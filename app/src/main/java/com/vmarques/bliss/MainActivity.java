@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         progress.setProgress(0);
         progress.show();
 
+        //Get questions from service
         ApiClient.get("/questions", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -58,19 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
 
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//                super.onFailure(statusCode, headers, throwable, errorResponse);
-//
-//                progress.dismiss();
-//                Intent intent = new Intent(MainActivity.this, NoConnectionActivity.class);
-//                intent.putExtra("com.vmarques.bliss.hasHealth", false);
-//                startActivity(intent);
-//            }
-
         });
 
-
+        //Go to details activity
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -90,18 +81,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //Save service response in arraylist
     private void parseResults(JSONArray response) {
         questions = new ArrayList<>();
 
         try {
-            //JSONObject joParent = response.getJSONObject(0);
-            //JSONArray jsonArray = new JSONArray(response);
+
             Log.d("response ", response.toString());
             for (int i = 0; i < response.length(); i++) {
 
                 JSONObject object = response.getJSONObject(i);
-//                JSONObject object = (JSONObject) joParent.get(i);
 
                 Question q = new Question();
                 q.setId(object.getInt("id"));
@@ -122,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Set listview adapter
     private void fillListView(ArrayList<Question> questions) {
 
         QuestionAdapter adapter = new QuestionAdapter(this, questions);

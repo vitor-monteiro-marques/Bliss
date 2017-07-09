@@ -20,6 +20,7 @@ public class MyUtils {
         return isConnected;
     }
 
+    // Get date from string
     public static String getDateFromString(String s) {
         String[] split = s.split("T");
         String date = split[0];
@@ -27,6 +28,7 @@ public class MyUtils {
 
     }
 
+    // Get time from string
     public static String getTimeFromString(String s) {
 
         String[] split = s.split("T");
