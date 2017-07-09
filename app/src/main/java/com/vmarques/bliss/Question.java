@@ -17,9 +17,9 @@ public class Question {
     private String image_url;
     private String thumb_url;
     private String published_at;
-    private JSONArray choices;
+    private String choices;
 
-    public Question(Integer id, String question, String image_url, String thumb_url, String published_at, JSONArray choices) {
+    public Question(Integer id, String question, String image_url, String thumb_url, String published_at, String choices) {
         this.id = id;
         this.question = question;
         this.image_url = image_url;
@@ -72,11 +72,11 @@ public class Question {
         this.published_at = published_at;
     }
 
-    public JSONArray getChoices() {
+    public String getChoices() {
         return choices;
     }
 
-    public void setChoices(JSONArray choices) {
+    public void setChoices(String choices) {
         this.choices = choices;
     }
 }

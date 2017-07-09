@@ -54,18 +54,14 @@ public class QuestionAdapter extends BaseAdapter {
 
             TextView tvQuestionName = (TextView) v.findViewById(R.id.tvQuestionName);
             TextView tvQuestionNumber = (TextView) v.findViewById(R.id.tvQuestionNumber);
-            TextView tvDateCreated = (TextView) v.findViewById(R.id.tvDateCreated);
             ImageView ivThumb = (ImageView) v.findViewById(R.id.ivThumb);
-//            ToggleButton tbFavourite = (ToggleButton) v.findViewById(R.id.tbAddFavourite);
 
             Question q = question.get(position);
 
                 String thumbUrl = q.getThumb_url();
                 Picasso.with(this.context).load(thumbUrl).placeholder(R.mipmap.ic_launcher).into(ivThumb);
-
-
+            
             tvQuestionName.setText(q.getQuestion());
-            tvDateCreated.setText(q.getPublished_at().toString());
             tvQuestionNumber.setText(q.getId().toString());
 
 

@@ -20,4 +20,18 @@ public class MyUtils {
         return isConnected;
     }
 
+    public static String getDateFromString(String s) {
+        String[] split = s.split("T");
+        String date = split[0];
+        return date;
+
+    }
+
+    public static String getTimeFromString(String s) {
+
+        String[] split = s.split("T");
+        String time = split[1].split("\\.")[0];
+        return time;
+    }
+
 }

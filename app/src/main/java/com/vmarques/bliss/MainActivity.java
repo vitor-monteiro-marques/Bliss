@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -56,20 +58,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+//                super.onFailure(statusCode, headers, throwable, errorResponse);
+//
+//                progress.dismiss();
+//                Intent intent = new Intent(MainActivity.this, NoConnectionActivity.class);
+//                intent.putExtra("com.vmarques.bliss.hasHealth", false);
+//                startActivity(intent);
+//            }
 
-                progress.dismiss();
-                Intent intent = new Intent(MainActivity.this, NoConnectionActivity.class);
-                intent.putExtra("com.vmarques.bliss.hasHealth", false);
+        });
+
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+
+                intent.putExtra("com.vmarques.bliss.id", questions.get(i).getId());
+                intent.putExtra("com.vmarques.bliss.url", questions.get(i).getImage_url());
+                intent.putExtra("com.vmarques.bliss.question", questions.get(i).getQuestion());
+                intent.putExtra("com.vmarques.bliss.choices", questions.get(i).getChoices());
+                intent.putExtra("com.vmarques.bliss.date", questions.get(i).getPublished_at());
+
                 startActivity(intent);
-            }
-
-            @Override
-            public void onFinish() {
-                super.onFinish();
-                progress.dismiss();
             }
         });
 
@@ -93,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 q.setId(object.getInt("id"));
                 q.setQuestion(object.getString("question"));
                 q.setPublished_at(object.getString("published_at"));
-                q.setChoices(object.getJSONArray("choices"));
+                q.setChoices(object.getString("choices"));
                 q.setImage_url(object.getString("image_url"));
                 q.setThumb_url(object.getString("thumb_url"));
 
