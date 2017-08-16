@@ -11,4 +11,3 @@ Challenge for the Bliss recruitment process.
 * ???
 * Profit
 
-#### Unfortunately the project isn't finished. I'll try to finish it as soon I have time.
